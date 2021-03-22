@@ -25,13 +25,14 @@ dbConnection();
 app.use( express.static('public') );
 
 // Rutas + controlador
-// app.use( '/api/usuarios', require('./routes/usuarios') ); // middleware
-// app.use( '/api/hospitales', require('./routes/hospitales') ); // middleware
-// app.use( '/api/medicos', require('./routes/medicos') ); // middleware
+app.use( '/api/usuarios', require('./routes/usuarios') ); // middleware
+app.use( '/api/rubros', require('./routes/rubros') ); // middleware
+app.use( '/api/productos', require('./routes/productos') ); // middleware
+app.use( '/api/resenas', require('./routes/resenas') ); // middleware
 // app.use( '/api/noticias', require('./routes/noticias') ); // middleware
-// app.use( '/api/todo', require('./routes/busquedas') ); // middleware
-// app.use( '/api/upload', require('./routes/uploads') ); // middleware
-// app.use( '/api/login', require('./routes/auth') ); // middleware
+app.use( '/api/todo', require('./routes/busquedas') ); // middleware
+app.use( '/api/upload', require('./routes/uploads') ); // middleware
+app.use( '/api/login', require('./routes/auth') ); // middleware
 
 
 // Lo último :: Cualquier otra ruta pasará por acá
