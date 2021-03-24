@@ -1,5 +1,7 @@
 /* globals Chart:false, feather:false */
 
+const customInitFunctions = () => {
+
 (function () {
   'use strict'
 
@@ -51,3 +53,7 @@
     }
   })
 })()
+
+}
+
+customInitFunctions();
