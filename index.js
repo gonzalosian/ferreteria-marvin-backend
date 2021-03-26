@@ -15,7 +15,7 @@ app.use(cors()); // middleware
 
 // Lectura y parseo del body ::: Esto va antes de las rutas
 app.use( express.json() ); // middleware
-
+ 
 // Base de datos
 dbConnection();
 // process.env: Esto ya existe en NODE, pero leerá el archivo y establecerá las var.de entonrno de manera global en node.
