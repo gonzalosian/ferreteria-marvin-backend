@@ -56,6 +56,8 @@ const googleSignIn = async( req, res = response ) => {
 
     const googleToken = req.body.token;
 
+    console.log(`googleToken: ${googleToken}`);
+
     try {
         // Verificamos el token
         const { name, email, picture } = await googleVerify( googleToken );
