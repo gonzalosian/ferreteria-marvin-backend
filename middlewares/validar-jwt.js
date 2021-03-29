@@ -6,7 +6,7 @@ const validarJWT = ( req, res = response, next ) => {
 
     // Leer el token
     const token = req.header('x-token');
-    console.log(token);
+    console.log( `validarJWT(): ${token}`);
 
     if( !token ){
         res.status(401).json({
@@ -18,7 +18,7 @@ const validarJWT = ( req, res = response, next ) => {
     try {
         const { uid } = jwt.verify( token, process.env.JWT_SECRET );
         // Si nos muestra el ID del user, es porque el token se verificó correctamente
-        console.log(uid);
+        console.log(`try en validarJWT: ${uid}`);
         // en la request devolveremos el usuario que hace la petición, para mostrarlo
         req.uid = uid;
 
@@ -71,7 +71,7 @@ const validarADMIN_ROLE_o_MismoUsuario = async( req, res = response, next ) => {
 
     const uid = req.uid;
     const id = req.params.uid;
-    // console.log(`validarADMIN_ROLE_o_MismoUsuario: ${uid} - ${id}`);
+    console.log(`validarADMIN_ROLE_o_MismoUsuario: ${uid} - ${id}`);
     try {
         const usuarioDB = await Usuario.findById( uid );
 
