@@ -53,17 +53,19 @@ const login = async( req, res = response ) => {
 
 
 const googleSignIn = async( req, res = response ) => {
-
     const googleToken = req.body.token;
-
     console.log(`googleToken: ${googleToken}`);
 
     try {
         // Verificamos el token
         const { name, email, picture } = await googleVerify( googleToken );
 
+        console.log(`googleVerify(): ${name} - ${email} - ${picture} `);
+
         const usuarioDB = await Usuario.findOne({ email });
         let usuario;
+
+        console.log(`usuarioDB - ${usuarioDB}`);
 
         if( !usuarioDB ){
             usuario = new Usuario({
@@ -80,11 +82,15 @@ const googleSignIn = async( req, res = response ) => {
             usuario.password = '@@@'; // de esta forma pierde la autentificación mediante usuario tradicional.
         }
 
+        console.log(`usuario: ${usuario}`);
+
         // Guardar en DB
         await usuario.save();
         
         // Generar el token - JWT
         const token = await generarJWT( usuario.id );
+
+        console.log(`token de generarJWT(): ${token}`);
 
         res.json({
             ok: true,
