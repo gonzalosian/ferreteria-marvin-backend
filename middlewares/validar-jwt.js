@@ -37,7 +37,7 @@ const validarJWT = ( req, res = response, next ) => {
 const validarADMIN_ROLE = async( req, res = response, next ) => {
 
     const uid = req.uid;
-    // console.log(`validarADMIN_ROLE: ${uid}`);
+    console.log(`validarADMIN_ROLE: ${uid}`);
     try {
         const usuarioDB = await Usuario.findById( uid );
 
