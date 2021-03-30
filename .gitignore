@@ -1,7 +1,5 @@
 node_modules/
 
-.env
-
 uploads/rubros/**.jpg
 uploads/rubros/**.jpeg
 uploads/rubros/**.png
